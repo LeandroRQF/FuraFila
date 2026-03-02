@@ -1,0 +1,21 @@
+# Ambiente virtual
+build_env/
+venv/
+
+# Build do PyInstaller
+build/
+dist/
+*.spec
+
+# Variáveis sensíveis
+.env
+
+# Arquivo de controle
+*.exe
+*.pkg
+*.log.env
+notified_tickets.txt
+
+# Cache
+__pycache__/
+*.pyc
