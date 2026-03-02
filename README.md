@@ -79,6 +79,7 @@ Preencha com suas credenciais reais.
 
 ▶️ Execução
 python main.py
+
 🔄 Funcionamento
 
 A aplicação:
