@@ -18,12 +18,12 @@ print("Aplicação iniciada")
 # ==========================================================
 # FUNÇÃO: buscar_tickets_recentes
 # Objetivo:
-# Buscar tickets novos e abertos criados nos últimos 15 minutos
+# Buscar tickets novos e abertos criados nos últimos 10 minutos
 # ==========================================================
 def buscar_tickets_recentes():
     url = f"https://{ZENDESK_SUBDOMAIN}.zendesk.com/api/v2/search.json"
 
-    query = "type:ticket status:new status:open created>15minutes"
+    query = "type:ticket status:new status:open created>10minutes"
 
     print("Buscando tickets recentes...")
     print("QUERY:", query)
@@ -128,14 +128,34 @@ def main():
     limpar_tickets_antigos(dias=7)
 
     palavras_originais = [
-        "urgente", "urgência", "imediatamente", "o quanto antes",
-        "hoje ainda", "até amanhã", "até hoje", "para hoje",
-        "pra hoje", "para amanhã", "pra amanhã", "faturamento",
-        "insatisfação", "insatisfeito", "insatisfeita",
-        "péssimo", "péssima", "ruim", "horrível",
-        "decepcionado", "decepcionada", "frustrado",
-        "indignada", "indignado", "descaso",
-        "falta de retorno", "ninguém responde", "NFS"
+
+        # 1. Urgência Direta / Prioridade
+        # Indicadores claros de que o cliente quer ação imediata.
+        "urgente", "urgência", "prioridade", "imediatamente", "o quanto antes", "o mais rápido possível", "retorno imediato", 
+
+        # Prazo Crítico / Atraso
+        # Usadas quando o cliente aponta data limite, atraso ou pressão de tempo.
+        "hoje ainda", "até hoje", "até amanhã", "para hoje", "pra hoje", "para amanhã", "pra amanhã", "para ontem", "pra ontem", 
+
+        # Insatisfação / Frustração
+        # Mostram descontentamento emocional, geralmente associados a escalonamento.
+        "insatisfeito", "insatisfeita", "insatisfação", "decepcionado", "decepcionada", "decepção", "frustração", "frustrado", "frustrada", "frustrante", 
+
+        # Avaliação Negativa Forte
+        # Termos mais agressivos, normalmente indicam risco de churn ou conflito.
+        "péssimo", "péssima", "ruim", "horrível", "inaceitável", "absurdo", 
+
+        # Reclamação por Falta de Atendimento
+        # Fortíssimo sinal de urgência e prioridade operacional.
+        "falta de retorno", "ninguém responde", 
+
+        # Financeiro / Fiscal
+        # Chamados desse tipo geralmente precisam de atenção rápida.
+        "faturamento", "NFS-e", "NFSe",
+    
+        # Escalonamento / Risco Institucional
+        # Indicam que o cliente pode ir além do suporte comum.
+        "não recomendo", "procon", "rescisão", "encerrar contrato"         
     ]
 
     tickets = buscar_tickets_recentes()
@@ -210,7 +230,7 @@ def main():
         palavras_formatadas = ", ".join(palavras_encontradas)
 
         mensagem = f"""
-        🚨 TICKET URGENTE 🚨
+        🚨 TICKET FURA FILA 🚨
         ID: {ticket['id']}
         Data: {data_formatada}
         Assunto: {subject}
