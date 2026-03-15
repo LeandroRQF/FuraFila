@@ -18,12 +18,12 @@ print("Aplicação iniciada")
 # ==========================================================
 # FUNÇÃO: buscar_tickets_recentes
 # Objetivo:
-# Buscar tickets novos e abertos criados nos últimos 10 minutos
+# Buscar tickets novos e abertos criados nos últimos 20 minutos
 # ==========================================================
 def buscar_tickets_recentes():
     url = f"https://{ZENDESK_SUBDOMAIN}.zendesk.com/api/v2/search.json"
 
-    query = "type:ticket status:new status:open created>10minutes"
+    query = "type:ticket status:new status:open created>20minutes"
 
     print("Buscando tickets recentes...")
     print("QUERY:", query)
