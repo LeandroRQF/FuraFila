@@ -1,29 +1,29 @@
 🚀 Monitoramento Proativo: De dashboards à antecipação de crises com Python!
 
-🎫 Zendesk → Microsoft Teams Notifier
+🎫 Zendesk → Microsoft Teams Notifier  
 Automação responsável por monitorar tickets novos no Zendesk e enviar notificações automáticas para um canal do Microsoft Teams.
 
-📌 Sobre o Projeto
+📌 Sobre o Projeto  
 Este projeto consulta periodicamente a API do Zendesk em busca de tickets com status new, criados recentemente, e envia uma notificação formatada para um canal do Microsoft Teams via Incoming Webhook.
 
 A aplicação também mantém controle dos tickets já notificados para evitar envios duplicados.
 
 🏗 Arquitetura do Projeto
-.
-├── .env
-├── .env.example
-├── .gitignore
-├── config.py
-├── main.py
-├── notifier.py
-├── notified_tickets.txt
-├── requirements.txt
-└── README.md
+.  
+├── .env  
+├── .env.example  
+├── .gitignore  
+├── config.py  
+├── main.py  
+├── notifier.py  
+├── notified_tickets.txt  
+├── requirements.txt  
+└── README.md  
 
-📄 Descrição dos Arquivos
-Arquivo	Descrição
-config.py
-Carrega e valida as variáveis de ambiente
+📄 Descrição dos Arquivos  
+Arquivo	Descrição  
+config.py  
+Carrega e valida as variáveis de ambiente  
 
 main.py
 Contém a lógica principal da aplicação
