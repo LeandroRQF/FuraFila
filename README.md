@@ -83,16 +83,17 @@ Preencha com suas credenciais reais.
 python main.py
 
 🔄 Funcionamento  
-A aplicação:  
-1 - Consulta a API do Zendesk  
-2 - Filtra tickets com:  
-    type:ticket  
-    status:new  
-    created>1hours  
-3 - Verifica se o ticket já foi notificado  
-4 - Converte horário UTC → America/Sao_Paulo  
-5 - Envia mensagem formatada para o Microsoft Teams  
-6 - Salva o ID do ticket para evitar duplicidade
+A aplicação:
+
+1. Consulta a API do Zendesk
+2. Filtra tickets com:
+   - `type:ticket`
+   - `status:new`
+   - `created>1hours`
+3. Verifica se o ticket já foi notificado
+4. Converte horário **UTC → America/Sao_Paulo**
+5. Envia mensagem formatada para o Microsoft Teams
+6. Salva o ID do ticket para evitar duplicidade
 
 🌎 Integrações Utilizadas  
 Zendesk API (Search Endpoint)  
