@@ -23,7 +23,7 @@ print("Aplicação iniciada")
 def buscar_tickets_recentes():
     url = f"https://{ZENDESK_SUBDOMAIN}.zendesk.com/api/v2/search.json"
 
-    query = "type:ticket status:new status:open created>20minutes"
+    query = "type:ticket status:new status:open created>15minutes"
 
     print("Buscando tickets recentes...")
     print("QUERY:", query)
