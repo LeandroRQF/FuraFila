@@ -151,7 +151,7 @@ def main():
 
         # Financeiro / Fiscal
         # Chamados desse tipo geralmente precisam de atenção rápida.
-        "faturamento", "NFS-e", "NFSe",
+        # "faturamento", "NFS-e", "NFSe",
     
         # Escalonamento / Risco Institucional
         # Indicam que o cliente pode ir além do suporte comum.
